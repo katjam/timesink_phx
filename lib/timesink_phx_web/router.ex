@@ -20,7 +20,9 @@ defmodule TimesinkPhxWeb.Router do
   end
 
   # Other scopes may use custom stacks.
-  # scope "/api", TimesinkPhxWeb do
-  #   pipe_through :api
-  # end
+  scope "/api", TimesinkPhxWeb do
+    pipe_through :api
+
+    resources "/people", PersonController, except: [:new, :edit]
+  end
 end
